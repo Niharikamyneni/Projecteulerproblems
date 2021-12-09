@@ -1,0 +1,40 @@
+problem 3
+=======================================================
+package com.training;
+
+public class LargestPrimeFactor {
+  public static long largestPrimeFactor(long n) {
+	  int i=2;
+	  while(i!=n) {
+		  if(n%i==0)
+			  n=n/i;
+		  else
+			  i++;
+	  }
+	  return n;
+  }
+	public static void main(String[] args) {
+		System.out.println(largestPrimeFactor(600851475143L));
+
+	}
+
+}
+=======================================================
+problem 4:
+
+package com.training;
+
+public class Difference {
+	public static int difference(int n) {
+		int sumSquareN=(n*(n+1)*(2*n+1))/6;
+		int sumN = (n*(n+1))/2;
+		int squareSumN = sumN * sumN;
+		return Math.abs(sumSquareN-squareSumN);
+ }
+   public static void main(String[] args) {
+		int n=100;
+		System.out.println("Number: "+n);
+		System.out.println("Difference: " + difference(n));
+	}
+
+}
