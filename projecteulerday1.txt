@@ -1,0 +1,47 @@
+problem 1:
+==========================================
+package com.training;
+
+public class Multiples {
+
+	public static void main(String[] args) {
+		int sum=0;
+		boolean threeMultiple=false,fiveMultiple=false;
+		
+		for(int i=3;i<1000;i++) {
+			
+			threeMultiple=i%3==0;
+			fiveMultiple=i%5==0;
+			if(threeMultiple|| fiveMultiple) sum+=i;
+		}
+		System.out.println(sum);
+	}
+
+}
+
+problem 2:
+===========================================
+package com.training;
+
+public class EvenFibanocci {
+
+	public static void main(String[] args) {
+		long a,b,c,sum=0L;
+		a=0;
+		b=0;
+		c=1;
+		
+		while(c<4000000) {
+			if(c%2==0)
+				sum +=c;
+		a=b;
+		b=c;
+		c=a+b;
+		}
+		System.out.println(sum);
+	}
+
+}
+
+
+
