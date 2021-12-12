@@ -1,0 +1,61 @@
+problem 19:
+
+package com.training;
+
+public class CountingSundays {
+	public String run() {
+		int count = 0;
+		for (int y = 1901; y <= 2000; y++) {
+			for (int m = 1; m <= 12; m++) {
+				if (dayOfWeek(y, m, 1) == 0)  // Sunday
+					count++;
+			}
+		}
+		return Integer.toString(count);
+	}
+	
+	private static int dayOfWeek(int year, int month, int day) {
+		if (year < 0 || year > 10000 || month < 1 || month > 12 || day < 1 || day > 31)
+			throw new IllegalArgumentException();
+		int m = (month - 3 + 4800) % 4800;
+		int y = (year + m / 12) % 400;
+		m %= 12;
+		return (y + y/4 - y/100 + (13 * m + 2) / 5 + day + 2) % 7;
+	}
+
+	public static void main(String[] args) {
+		CountingSundays solution = new CountingSundays();
+		System.out.println(solution.run());
+	}	
+}
+
+============================================================================================================
+problem 20:
+
+package com.training;
+
+import java.math.BigInteger;
+
+public class FactorialDigitSum {
+	public String run() {
+		String temp = factorial(100).toString();
+		int sum = 0;
+		for (int i = 0; i < temp.length(); i++)
+			sum += temp.charAt(i) - '0';
+		return Integer.toString(sum);
+	}
+
+        public static BigInteger factorial(int n) {
+		if (n < 0)
+			throw new IllegalArgumentException("Factorial of negative number");
+		BigInteger prod = BigInteger.ONE;
+		for (int i = 2; i <= n; i++)
+			prod = prod.multiply(BigInteger.valueOf(i));
+		return prod;
+	}
+
+	public static void main(String[] args) {
+		FactorialDigitSum solution = new FactorialDigitSum();
+		System.out.println(solution.run());
+	}	
+}
